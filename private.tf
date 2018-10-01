@@ -1,7 +1,7 @@
 /*
   Database Servers
 */
-resource "aws_security_group" "db" {
+/*resource "aws_security_group" "db" {
     name = "vpc_db"
     description = "Allow incoming database connections."
 
@@ -53,8 +53,8 @@ resource "aws_security_group" "db" {
 
 resource "aws_instance" "db-1" {
     ami = "${lookup(var.amis, var.aws_region)}"
-    availability_zone = "eu-west-1a"
-    instance_type = "m1.small"
+    availability_zone = "${var.availability_zone}"
+    instance_type = "t2.micro"
     key_name = "${var.aws_key_name}"
     vpc_security_group_ids = ["${aws_security_group.db.id}"]
     subnet_id = "${aws_subnet.eu-west-1a-private.id}"
@@ -63,4 +63,4 @@ resource "aws_instance" "db-1" {
     tags {
         Name = "DB Server 1"
     }
-}
+}*/
